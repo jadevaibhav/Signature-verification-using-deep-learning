@@ -1,8 +1,19 @@
 # Signature-verification-using-deep-learning
-Using SigComp'11 dataset for signature verification
+Using SigComp'11 dataset for signature verification (With Siamese network and triplet loss) 
 
 ## Getting Started 
-Before starting with this tutorial, you should already have latest version of tensorflow and Keras installed(with Python 3). I have done all the work in Google Colab, which provides GPU for limited time. This repository contains 3 files final_code.ipynb, model.ipynb, trial.ipynb. model and trial ipynb files contains the detailed work, which are sequentially and neatly covered again in final_code.ipynb. Should only refer to this file.
+Before starting with this tutorial, you should already have latest version of tensorflow and Keras installed(with Python 3). I have done all the work in Google Colab, which provides GPU for limited time. This repository contains 5 files- mycode.ipynb,siamese_net.h5, final_code.ipynb, model.ipynb, trial.ipynb. model and trial.ipynb files contains the detailed work, which are sequentially and neatly covered again in final_code.ipynb. Should only refer to this file. For siamese network and triplet loss refer to mycode.ipynb. The model is saved in siamese_net.h5.
+
+## Resources
+I am compiling all the resources here-
+#### http://www.iapr-tc11.org/mediawiki/index.php/ICDAR_2011_Signature_Verification_Competition_(SigComp2011)
+#### https://medium.com/deep-learning-turkey/google-colab-free-gpu-tutorial-e113627b9f5d
+#### http://cs231n.stanford.edu/reports/2016/pdfs/276_Report.pdf
+#### https://www.coursera.org/lecture/convolutional-neural-networks/siamese-network-bjhmj.
+#### https://arxiv.org/abs/1503.03832
+#### https://thelonenutblog.wordpress.com/2017/12/18/what-siamese-dreams-are-made-of/
+#### https://keras.io/applications/#nasnet
+#### https://keras.io/applications/#documentation-for-individual-models  
 
 ## Getting Started with Colab
 Colab uses your Google drive for loading and storing data/model. I have covered how to mount drive to Google Compute Engine in the file. During execution of the 1st block(for mounting the drive), you need to give access to Colab.
@@ -58,3 +69,48 @@ Total params: 263,004
 Trainable params: 263,004
 Non-trainable params: 0
 ```
+## Siamese networks and Triplet loss
+I have used siamese training dor generating embeddings from images and triplet loss as loss function. For, more information about siamese network and triplet loss, please refer to -
+https://www.coursera.org/lecture/convolutional-neural-networks/siamese-network-bjhmj. 
+For paper-
+https://arxiv.org/abs/1503.03832
+
+### Model Architecture
+As siamese training with triplet loss requires quite a lot of memory, I tried searching for architectures which would have lesser parameters. I have chosen one of the lesser parameter model- NASnetMobile. For details of model architecture and comparison of models, plese refer to this Keras documentation - 
+https://keras.io/applications/#nasnet and 
+https://keras.io/applications/#documentation-for-individual-models  
+
+### Training
+I have added few Conv and max-pooling layers for dimentionality accordance. In the end, I am generating 1024 length vector.
+```
+Layer (type)                    Output Shape         Param #     Connected to                     
+==================================================================================================
+input_10 (InputLayer)           (None, 551, 1117, 1) 0                                            
+__________________________________________________________________________________________________
+input_11 (InputLayer)           (None, 551, 1117, 1) 0                                            
+__________________________________________________________________________________________________
+input_12 (InputLayer)           (None, 551, 1117, 1) 0                                            
+__________________________________________________________________________________________________
+model_5 (Model)                 (None, 1, 1024)      5352642     input_10[0][0]                   
+                                                                 input_11[0][0]                   
+                                                                 input_12[0][0]                   
+__________________________________________________________________________________________________
+concatenate_7 (Concatenate)     (None, 3, 1024)      0           model_5[1][0]                    
+                                                                 model_5[2][0]                    
+                                                                 model_5[3][0]                    
+==================================================================================================
+Total params: 5,352,642
+Trainable params: 1,082,926
+Non-trainable params: 4,269,716
+```
+The 3 input layers are for anchor, positive and negative image respectively. I am compiling the model with triplet loss
+```
+mod.compile(optimizer='adam',loss=triplet_loss,metrics=['accuracy'])
+```
+which I have deviced as per Convolutional neural networks course, deeplearning.ai. Just for the demonstration and due to being rather computationally extensive, I have only trained the model for 5 epochs. As per the defination of the model, more the loss, better the features learned.
+
+## Comparison
+Posing verification task as multi-class classification, I have trained my small baseline model and InceptionV3 with transfer learning. InceptionV3 model gives much better performance than basline, as expected. But without regularization, it overfits, which is evident from validation. I haven't tested of my siamese network with other approches yet, will release it as soon as I get onto to it.
+
+## Few last words...
+Thank you for staying with me till the end. If you liked my repo and the work I have done, feel free to star this repo and follow me. I will make sure to bring out awesome deep learning projects like this in the future. Until the next time, **サヨナラ!** I am Indian and anime fan ;)
