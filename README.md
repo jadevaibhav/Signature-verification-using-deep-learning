@@ -114,4 +114,4 @@ Posing verification task as multi-class classification, I have trained my small 
 
 ## Few last words...
 Thank you for staying with me till the end. If you liked my repo and the work I have done, feel free to star this repo and follow me. I will make sure to bring out awesome deep learning projects like this in the future. Until the next time, **サヨナラ!** 
-PS: I am an anime fan ;)
+###### PS: I am an anime fan ;)
