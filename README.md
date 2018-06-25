@@ -103,7 +103,7 @@ Total params: 5,352,642
 Trainable params: 1,082,926
 Non-trainable params: 4,269,716
 ```
-The 3 input layers are for anchor, positive and negative image respectively. I am compiling the model with triplet loss
+As you might have guessed, only storing the 'Model' is required from above architecture. Please refer to code for details. The 3 input layers are for anchor, positive and negative image respectively. I am compiling the model with triplet loss
 ```
 mod.compile(optimizer='adam',loss=triplet_loss,metrics=['accuracy'])
 ```
