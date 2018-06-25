@@ -113,4 +113,5 @@ which I have deviced as per Convolutional neural networks course, deeplearning.a
 Posing verification task as multi-class classification, I have trained my small baseline model and InceptionV3 with transfer learning. InceptionV3 model gives much better performance than basline, as expected. But without regularization, it overfits, which is evident from validation. I haven't tested of my siamese network with other approches yet, will release it as soon as I get onto to it.
 
 ## Few last words...
-Thank you for staying with me till the end. If you liked my repo and the work I have done, feel free to star this repo and follow me. I will make sure to bring out awesome deep learning projects like this in the future. Until the next time, **サヨナラ!** I am Indian and anime fan ;)
+Thank you for staying with me till the end. If you liked my repo and the work I have done, feel free to star this repo and follow me. I will make sure to bring out awesome deep learning projects like this in the future. Until the next time, **サヨナラ!** 
+PS: I am an anime fan ;)
