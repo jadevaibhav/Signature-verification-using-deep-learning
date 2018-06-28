@@ -11,6 +11,7 @@ I am compiling all the resources here-
 #### http://cs231n.stanford.edu/reports/2016/pdfs/276_Report.pdf
 #### https://www.coursera.org/lecture/convolutional-neural-networks/siamese-network-bjhmj.
 #### https://arxiv.org/abs/1503.03832
+#### https://github.com/adambielski/siamese-triplet
 #### https://thelonenutblog.wordpress.com/2017/12/18/what-siamese-dreams-are-made-of/
 #### https://keras.io/applications/#nasnet
 #### https://keras.io/applications/#documentation-for-individual-models  
