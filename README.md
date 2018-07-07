@@ -76,7 +76,7 @@ https://www.coursera.org/lecture/convolutional-neural-networks/siamese-network-b
 For paper-
 https://arxiv.org/abs/1503.03832
 ##### Here, I have used offline siamese data generation as the the dataset I am using is offline dataset.
-##### PS: This was a joke and offline siamese data generation and offline dataset provided have no relation whatsoever. If you didn't get this one, you should consider revisiting the dataset page and siamese learning tutorial!
+##### PS: This was a joke and offline siamese data generation and offline dataset provided have no relation whatsoever. If you didn't get this one, you should consider revisiting the dataset page and siamese learning tutorial! I checked again, and my strategy does not classify as offline or online siamese triplet selection.
 ### Model Architecture
 As siamese training with triplet loss requires quite a lot of memory, I tried searching for architectures which would have lesser parameters. I have chosen one of the lesser parameter model- NASnetMobile. For details of model architecture and comparison of models, plese refer to this Keras documentation - 
 https://keras.io/applications/#nasnet and 
