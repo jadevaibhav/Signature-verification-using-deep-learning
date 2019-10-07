@@ -2,7 +2,7 @@
 Using SigComp'11 dataset for signature verification (With Siamese network and triplet loss) 
 
 ## Getting Started 
-Before starting with this tutorial, you should already have latest version of tensorflow and Keras installed(with Python 3). I have done all the work in Google Colab, which provides GPU for limited time. This repository contains 5 files- mycode.ipynb,siamese_net.h5, final_code.ipynb, model.ipynb, trial.ipynb. model and trial.ipynb files contains the detailed work, which are sequentially and neatly covered again in final_code.ipynb. Should only refer to this file. For siamese network and triplet loss refer to mycode.ipynb. The model is saved in siamese_net.h5.
+Before starting with this tutorial, you should already have latest version of tensorflow and Keras installed(with Python 3). I have done all the work in Google Colab, which provides GPU for limited time. This repository contains 5 files- mycode.ipynb,siamese_net.h5, final_code.ipynb, model.ipynb, trial.ipynb. model and trial.ipynb files contains the detailed work, which are sequentially and neatly covered again in final_code.ipynb. The data and model parameter files are omitted, you have to train it yourselves. Should only refer to this file. For siamese network and triplet loss refer to mycode.ipynb. The model is saved in siamese_net.h5.
 
 ## Resources
 I am compiling all the resources here-
